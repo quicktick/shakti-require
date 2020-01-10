@@ -1,0 +1,7 @@
+{
+  "name": "example-module",
+  "version": "0.0.1",
+  "repository": "https://gitlab.com/quicktick/shakti-require.git",
+  "author": "Richard Gill <richard@rgill.co.uk>",
+  "license": "MIT"
+}
