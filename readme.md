@@ -12,7 +12,7 @@ Install [Yarn](https://yarnpkg.com/lang/en/)
 
 Run:
 
-```
+```bash
 yarn init
 yarn add shakti-require
 yarn add example-shakti-module
@@ -63,3 +63,7 @@ If your path doesn't end with `.k` it will append `/index.k` to the end of your 
 
 .require.requireWithoutCache["module/folder/index.k"] / loads ./exampleModule.k again
 ```
+
+### Example module
+
+We've written an example shakti module which has been published to npm here: https://github.com/quicktick/example-shakti-module
