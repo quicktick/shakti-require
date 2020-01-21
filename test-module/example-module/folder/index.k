@@ -1,3 +1,3 @@
-.require.require["./another.k"]
+.rq.require["./another.k"]
 
 .exampleModule.folder: .folder.another
