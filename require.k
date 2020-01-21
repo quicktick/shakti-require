@@ -16,7 +16,7 @@
 .rq.i.currentFileDirectory: $[.rq.i.endsWith[.z.x[0];".k"];.rq.i.directory[.z.x[0]];"."]
 
 .rq.i.resolveFilePath: {[filePath]
-  filePathWithExtension: $[.rq.i.endsWith[filePath;".k"];filePath;filePath,"/index.k"]
+  filePathWithExtension: $[.rq.i.endsWith[filePath;".k"];filePath;filePath,"/import.k"]
   fullFilePath: $[*filePathWithExtension = ".";.rq.i.currentFileDirectory,"/",filePathWithExtension;.rq.i.nodeModulesFolder,filePathWithExtension]
   result: . "\\node --no-warnings ./node_modules/shakti-require/js/resolve.js ",fullFilePath
   result[0]}

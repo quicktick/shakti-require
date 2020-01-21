@@ -40,7 +40,7 @@ or
 
 You can pass the require function an absolute or relative path.
 
-If your path doesn't end with `.k` it will append `/index.k` to the end of your path:
+If your path doesn't end with `.k` it will append `/import.k` to the end of your path:
 
 ### Examples
 
@@ -49,19 +49,19 @@ If your path doesn't end with `.k` it will append `/index.k` to the end of your 
 
 .rq.require["./exampleModule.k"]
 
-.rq.require["./folder/index.k"]
+.rq.require["./folder/import.k"]
 
 .rq.require["./folder"] / same as above
 
-.rq.require["module"] / this resolves to node_modules/module/index.k
+.rq.require["module"] / this resolves to node_modules/module/import.k
 
-.rq.require["module/folder"] / this resolves to node_modules/module/folder/index.k
+.rq.require["module/folder"] / this resolves to node_modules/module/folder/import.k
 
-.rq.require["module/folder/index.k"] / this resolves to node_modules/module/folder/index.k
+.rq.require["module/folder/import.k"] / this resolves to node_modules/module/folder/import.k
 
-.rq.require["module/folder/index.k"] / won't run module/folder/index.k again a cached response is returned
+.rq.require["module/folder/import.k"] / won't run module/folder/import.k again a cached response is returned
 
-.rq.requireWithoutCache["module/folder/index.k"] / loads ./exampleModule.k again
+.rq.requireWithoutCache["module/folder/import.k"] / loads ./exampleModule.k again
 ```
 
 ### Example module
