@@ -1,36 +1,36 @@
 
-.require.cache:: ("nothing";())!(1;())
+.rq.i.cache:: ("nothing";())!(1;())
 
-.require.initialize: {[nodeModulesFolder]
-  .require.nodeModulesFolder:: $[nodeModulesFolder;nodeModulesFolder;"./node_modules/"]}
+.rq.init: {[nodeModulesFolder]
+  .rq.i.nodeModulesFolder:: $[nodeModulesFolder;nodeModulesFolder;"./node_modules/"]}
 
 
-.require.drop: {[string; n]
+.rq.i.drop: {[string; n]
   result: n _ string
   $[count[result] = 1; result[0]; result]}
 
-.require.endsWith: {[string; suffix] .require.drop[string;(count[string] - count[suffix])] ~ suffix}
+.rq.i.endsWith: {[string; suffix] .rq.i.drop[string;(count[string] - count[suffix])] ~ suffix}
 
-.require.directory: {[filePath] (. "\\node --no-warnings ./node_modules/shakti-require/js/dirName.js ",filePath)[0]}
+.rq.i.directory: {[filePath] (. "\\node --no-warnings ./node_modules/shakti-require/js/dirName.js ",filePath)[0]}
 
-.require.currentFileDirectory: $[.require.endsWith[.z.x[0];".k"];.require.directory[.z.x[0]];"."]
+.rq.i.currentFileDirectory: $[.rq.i.endsWith[.z.x[0];".k"];.rq.i.directory[.z.x[0]];"."]
 
-.require.resolveFilePath: {[filePath]
-  filePathWithExtension: $[.require.endsWith[filePath;".k"];filePath;filePath,"/index.k"]
-  fullFilePath: $[*filePathWithExtension = ".";.require.currentFileDirectory,"/",filePathWithExtension;.require.nodeModulesFolder,filePathWithExtension]
+.rq.i.resolveFilePath: {[filePath]
+  filePathWithExtension: $[.rq.i.endsWith[filePath;".k"];filePath;filePath,"/index.k"]
+  fullFilePath: $[*filePathWithExtension = ".";.rq.i.currentFileDirectory,"/",filePathWithExtension;.rq.i.nodeModulesFolder,filePathWithExtension]
   result: . "\\node --no-warnings ./node_modules/shakti-require/js/resolve.js ",fullFilePath
   result[0]}
 
-.require.requireWithoutCache: {[filePath]
-  resolvedFilePath: .require.resolveFilePath[filePath]
-  oldCurrentFileDirectory: .require.currentFileDirectory
-  .require.currentFileDirectory::.require.directory[resolvedFilePath]
+.rq.requireWithoutCache: {[filePath]
+  resolvedFilePath: .rq.i.resolveFilePath[filePath]
+  oldCurrentFileDirectory: .rq.i.currentFileDirectory
+  .rq.i.currentFileDirectory::.rq.i.directory[resolvedFilePath]
   . "\\l ",resolvedFilePath
-  .require.currentFileDirectory: oldCurrentFileDirectory
+  .rq.i.currentFileDirectory: oldCurrentFileDirectory
   1}
 
-.require.insertIntoDict: {[dict;newDict] ((! dict),(! newDict))!((. dict),(. newDict))}
+.rq.i.insertIntoDict: {[dict;newDict] ((! dict),(! newDict))!((. dict),(. newDict))}
 
-.require.require:{[filePath]
-  resolvedFilePath: .require.resolveFilePath[filePath]
-  if[~(.require.cache[resolvedFilePath] = 1);.require.cache:: .require.insertIntoDict[.require.cache; (resolvedFilePath;())!(.require.requireWithoutCache[filePath]; ())]]}
+.rq.require:{[filePath]
+  resolvedFilePath: .rq.i.resolveFilePath[filePath]
+  if[~(.rq.i.cache[resolvedFilePath] = 1);.rq.i.cache:: .rq.i.insertIntoDict[.rq.i.cache; (resolvedFilePath;())!(.rq.requireWithoutCache[filePath]; ())]]}

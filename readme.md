@@ -22,18 +22,18 @@ Then at the start of your program run:
 
 ```
 \l ./node_modules/shakti-require/require.k
-.require.initialize[]
+.rq.init[]
 ```
 
 You then require other modules like this:
 ```
-.require.require["example-shakti-module"] / loads the module from ./node_modules
+.rq.require["example-shakti-module"] / loads the module from ./node_modules
 .example.add[1;2] / call loaded function
-.require.require["./exampleModule.k"]
+.rq.require["./exampleModule.k"]
 ```
 or
 ```
-.require.requireWithoutCache["./exampleModule.k"]
+.rq.requireWithoutCache["./exampleModule.k"]
 ```
 
 ## Require syntax
@@ -47,21 +47,21 @@ If your path doesn't end with `.k` it will append `/index.k` to the end of your 
 ```
 \l ./node_modules/shakti-require/require.k
 
-.require.require["./exampleModule.k"]
+.rq.require["./exampleModule.k"]
 
-.require.require["./folder/index.k"]
+.rq.require["./folder/index.k"]
 
-.require.require["./folder"] / same as above
+.rq.require["./folder"] / same as above
 
-.require.require["module"] / this resolves to node_modules/module/index.k
+.rq.require["module"] / this resolves to node_modules/module/index.k
 
-.require.require["module/folder"] / this resolves to node_modules/module/folder/index.k
+.rq.require["module/folder"] / this resolves to node_modules/module/folder/index.k
 
-.require.require["module/folder/index.k"] / this resolves to node_modules/module/folder/index.k
+.rq.require["module/folder/index.k"] / this resolves to node_modules/module/folder/index.k
 
-.require.require["module/folder/index.k"] / won't run module/folder/index.k again a cached response is returned
+.rq.require["module/folder/index.k"] / won't run module/folder/index.k again a cached response is returned
 
-.require.requireWithoutCache["module/folder/index.k"] / loads ./exampleModule.k again
+.rq.requireWithoutCache["module/folder/index.k"] / loads ./exampleModule.k again
 ```
 
 ### Example module
